@@ -21,6 +21,7 @@ switch ($page) {
         break;
     case 'article':
         ArticleRouter::route($method);
-    default:
+        break;
+    default:;
         (new ErrorController())->error404($page);
 }

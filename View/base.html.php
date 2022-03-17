@@ -14,7 +14,7 @@
         <div id="head">
             <div>LOGO</div>
 
-            <div id="title">
+            <div id="titre">
                 <h1>PC RENOVE</h1>
             </div>
         </div>
@@ -26,13 +26,13 @@
                 <a href="/index.php?c=home&a=Home">Home</a>
             </li>
             <li>
-                <a href="/index.php?c=article&a=article">Articles</a>
+                <a href="/index.php?c=article">Articles</a>
             </li>
 
             <?php
             if(!UserController::isUserConnected()) { ?>
             <li>
-                <a href="/index.php?c=article&a=add-article">FormArticle</a>
+                <a href="/index.php?c=article">FormArticle</a>
             </li><?php
             }
             else { ?>

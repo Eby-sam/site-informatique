@@ -1,5 +1,5 @@
 <div id="homeContainer">
-    <div>
+    <div class="titlePage">
         <h2> PC RENOVE (HOME) </h2>
 
         <h3>Réparation d'ordinateurs et matérielles informatiques</h3>

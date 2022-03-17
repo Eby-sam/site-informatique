@@ -1,4 +1,4 @@
-<div class="pageTitle">
+<div class="titlePage">
     <h2>Ajoutez un article</h2>
 </div>
 

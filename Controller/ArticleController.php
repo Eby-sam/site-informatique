@@ -15,7 +15,7 @@ class ArticleController extends AbstractController
 
     public function index()
     {
-        $this->render('article/add-article');
+        $this->render('article/articles');
     }
 
     public function listAllArticles()

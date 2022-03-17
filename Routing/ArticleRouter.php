@@ -23,10 +23,10 @@ class ArticleRouter extends AbstractRouter
                 $controller->listAllArticles();
                 break;
             case 'add-article':
-                $controller->addArticle();
-                break;
-            case 'article':
                 $controller->findAll();
+                break;
+            case 'articles':
+                $controller->addArticle();
                 break;
             default:
                 $errorController->error404($action);
