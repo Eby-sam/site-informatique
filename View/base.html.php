@@ -21,36 +21,33 @@
 
     </div>
     <div>
-        <ul>
+        <ul class="liste">
             <li>
-                <a href="">Home</a>
+                <a href="/index.php?c=home&a=Home">Home</a>
             </li>
             <li>
-                <a href="">Articles</a>
-            </li><?php
+                <a href="/index.php?c=article&a=article">Articles</a>
+            </li>
+
+            <?php
             if(!UserController::isUserConnected()) { ?>
             <li>
                 <a href="/index.php?c=article&a=add-article">FormArticle</a>
-            </li>
-                }
-                else { ?>
-                    <li><a href="/index.php?c=user&a=logout">Se déconnecter</a></li> <?php
-                }
-                ?>
+            </li><?php
+            }
+            else { ?>
+             <?php
+            } ?>
+
             <li>
                 <a href="">Galerie d'image</a>
             </li>
+
         </ul>
     </div>
 
     <?php
 
-    echo "<pre>";
-    var_dump([
-        'user in session' => isset($_SESSION['user']),
-        'user_connected' => UserController::isUserConnected(),
-    ]);
-    echo "</pre>";
     // Handling error messages.
     if(isset($_SESSION['errors']) && count($_SESSION['errors']) > 0) {
         $errors = $_SESSION['errors'];
@@ -73,5 +70,7 @@
 
 </div>
 
+
+<script src="/assets/js/app.js"></script>
 </body>
 </html>

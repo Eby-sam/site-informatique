@@ -9,6 +9,12 @@ class ArticleManager
 {
     public const TABLE = 'article';
 
+
+    public function getAllArticle() {
+
+    }
+
+
     /**
      * Return all users.
      * @return array
@@ -57,3 +63,11 @@ class ArticleManager
         return $result;
     }
 }
+
+
+
+
+
+
+
+

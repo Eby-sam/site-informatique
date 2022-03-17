@@ -3,6 +3,7 @@
 use App\Routing\AbstractRouter;
 use App\Routing\HomeRouter;
 use App\Routing\ArticleRouter;
+use App\Routing\UserRouter;
 
 
 require __DIR__ . '/../includes.php';
@@ -14,6 +15,9 @@ $method = isset($_GET['a']) ? AbstractRouter::secure($_GET['a']) : 'index';
 switch ($page) {
     case 'home':
         HomeRouter::route();
+        break;
+    case 'user':
+        UserRouter::route($method);
         break;
     case 'article':
         ArticleRouter::route($method);

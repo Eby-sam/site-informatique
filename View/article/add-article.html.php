@@ -1,5 +1,5 @@
 <div class="pageTitle">
-    <h2>Se connecté en tant qu'administrateur</h2>
+    <h2>Ajoutez un article</h2>
 </div>
 
 

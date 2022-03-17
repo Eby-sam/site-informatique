@@ -34,6 +34,13 @@ html {
     background-color: #eae5e5;
 }
 
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 #formArticle {
     width: 30%;
     height: 40vh;
@@ -42,4 +49,11 @@ html {
     justify-content: space-evenly;
     align-items: center;
     border: 2px solid black;
+}
+
+.liste {
+    font-size: 2rem;
+    list-style: none;
+    background-color: #d8d1d1;
+    padding: 2px;
 }

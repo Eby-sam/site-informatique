@@ -1,1 +1,1 @@
-<h1> PC RENOVE </h1>
+<h1> PC RENOVE (HOME) </h1>
