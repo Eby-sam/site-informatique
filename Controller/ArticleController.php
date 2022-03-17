@@ -15,7 +15,7 @@ class ArticleController extends AbstractController
 
     public function index()
     {
-        // mon commentaire qui m'a pris du temsp à écrire.
+        $this->render('article/add-article');
     }
 
     public function listAllArticles()
@@ -34,18 +34,14 @@ class ArticleController extends AbstractController
         if($this->isFormSubmitted()) {
 
             $user = UserManager::getUser(1);
-
-
             $title = $this->sanitizeString($this->getFormField('title'));
             $content = $this->sanitizeString($this->getFormField('content'));
-
             $article = new Article();
             $article
                 ->setTitle($title)
                 ->setContent($content)
                 ->setAuthor($user)
             ;
-            
             if(ArticleManager::addNewArticle($article)) {
                 $this->render('article/show-article', [
                     'article' => $article,
@@ -56,6 +52,9 @@ class ArticleController extends AbstractController
         $this->render('article/add-article');
     }
 
+    /**
+     * @return array
+     */
     public function findAll(): array
     {
         $articles = [];
@@ -74,7 +73,6 @@ class ArticleController extends AbstractController
                 ;
             }
         }
-
         return $articles;
     }
 }

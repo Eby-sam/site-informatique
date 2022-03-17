@@ -13,4 +13,5 @@ class HomeRouter extends AbstractRouter
     {
         (new HomeController())->index();
     }
+
 }

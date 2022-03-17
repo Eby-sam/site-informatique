@@ -15,7 +15,6 @@ class ArticleRouter extends AbstractRouter
         if(null === $action) {
             $errorController->error404($action);
         }
-
         switch ($action) {
             case 'index':
                 $controller->index();

@@ -70,6 +70,10 @@
 
 </div>
 
+<main class="container">
+    <?= $html ?>
+</main>
+
 
 <script src="/assets/js/app.js"></script>
 </body>
