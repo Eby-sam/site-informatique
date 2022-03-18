@@ -20,7 +20,7 @@ class ArticleController extends AbstractController
 
     public function listAllArticles()
     {
-
+        $this->render('article/articles');
     }
 
     /**
@@ -73,7 +73,9 @@ class ArticleController extends AbstractController
                 ;
             }
         }
+        $this->render('article/articles');
         return $articles;
+
     }
 }
 

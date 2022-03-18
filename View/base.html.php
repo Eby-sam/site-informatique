@@ -26,7 +26,7 @@
                 <a href="/index.php?c=home&a=Home">Home</a>
             </li>
             <li>
-                <a href="/index.php?c=article">Articles</a>
+                <a href="/index.php?c=article&a=articles">Articles</a>
             </li>
 
             <?php

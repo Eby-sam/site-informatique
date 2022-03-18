@@ -22,10 +22,10 @@ class ArticleRouter extends AbstractRouter
             case 'list-all-articles':
                 $controller->listAllArticles();
                 break;
-            case 'add-article':
+            case 'articles':
                 $controller->findAll();
                 break;
-            case 'articles':
+            case 'add-article':
                 $controller->addArticle();
                 break;
             default:
