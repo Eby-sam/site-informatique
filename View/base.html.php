@@ -40,7 +40,7 @@
             } ?>
 
             <li>
-                <a href="">Galerie d'image</a>
+                <a href="/index.php?c=image">Galerie d'image</a>
             </li>
 
         </ul>

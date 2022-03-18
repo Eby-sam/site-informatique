@@ -4,15 +4,15 @@
 
 
 <div id="formAd">
-    <form action=/index.php?c=article&a=add-article"" method="post">
+    <form action="" method="post">
         <div>
-            <label for="title">Titre de l'article</label>
+            <label for="title">Pseudo</label>
             <input type="text" name="title" id="title" placeholder="titre">
         </div>
         <div>
-            <label for=""></label>
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password">
         </div>
-        <input type="submit" name="save" value="Enregistrer">
+        <input type="submit" name="save" value="Validé">
     </form>
 </div>
