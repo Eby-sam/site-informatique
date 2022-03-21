@@ -24,9 +24,6 @@ class UserRouter extends AbstractRouter
             case 'edit-user':
                 self::execRouteWithParameters($controller, 'editUser', ['id' => 'int', 'category' => 'string']);
                 break;
-            case 'delete-user':
-                self::execRouteWithParameters($controller, 'deleteUser', ['id' => 'int']);
-                break;
             case 'logout':
                 $controller->logout();
                 break;

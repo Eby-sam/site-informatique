@@ -10,8 +10,21 @@ class ArticleManager
     public const TABLE = 'article';
 
 
-    public function getAllArticle() {
+    public function getArticles(): array
+    {
+        $articles = [];
+        $query = DB::getPDO()->query("SELECT * FROM article WHERE id BETWEEN 1 AND 4 ");
+        if($query) {
+            $userManager = new UserManager();
 
+            foreach($query->fetchAll() as $articleData) $articles[] = (new Article())
+                ->setId($articleData['id'])
+                ->setAuthor($userManager->getUser($articleData['user_fk']))
+                ->setTitle($articleData['title'])
+            ;
+        }
+
+        return $articles;
     }
 
 
@@ -22,20 +35,15 @@ class ArticleManager
     public function findAll(): array
     {
         $articles = [];
-        $query = DB::getPDO()->query("SELECT * FROM " . self::TABLE);
+        $query = DB::getPDO()->query("SELECT * FROM article ORDER BY id DESC");
         if($query) {
             $userManager = new UserManager();
-            $format = 'Y-m-d H:i:s';
 
-            foreach($query->fetchAll() as $articleData) {
-                $articles[] = (new Article())
-                    ->setId($articleData['id'])
-                    ->setAuthor($userManager->getUser($articleData['user_fk']))
-                    ->setContent($articleData['content'])
-                    ->setPicture($articleData['picture'])
-                    ->setTitle($articleData['title'])
-                ;
-            }
+            foreach($query->fetchAll() as $articleData) $articles[] = (new Article())
+                ->setId($articleData['id'])
+                ->setTitle($articleData['title'])
+                ->setContent($articleData['content'])
+            ;
         }
 
         return $articles;
@@ -54,8 +62,8 @@ class ArticleManager
         ");
 
         $stmt->bindValue(':title', $article->getTitle());
-        $stmt->bindValue(':content', $article->getContent());
         $stmt->bindValue(':picture', $article->getPicture());
+        $stmt->bindValue(':content', $article->getContent());
         $stmt->bindValue(':author', $article->getAuthor()->getId());
 
         $result = $stmt->execute();

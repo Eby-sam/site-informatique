@@ -97,7 +97,7 @@ class UserController extends AbstractController
         self::redirectIfConnected();
 
         if($this->isFormSubmitted()) {
-            $errorMessage = "L'utilisateur / le password est mauvais";
+            $errorMessage = "Le pseudo ou le password est mauvais";
             $mail = $this->sanitizeString($this->getFormField('email'));
             $password = $this->getFormField('password');
 

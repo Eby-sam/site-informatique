@@ -13,8 +13,9 @@ class Article extends AbstractEntity {
      */
     public function getTitle(): string
     {
-        return $this->title;
+        return str_replace('\\','',$this->title);
     }
+
 
     /**
      * @param string $title
@@ -31,7 +32,7 @@ class Article extends AbstractEntity {
      */
     public function getContent(): string
     {
-        return $this->content;
+        return str_replace('\\','',$this->title);
     }
 
     /**
@@ -72,11 +73,11 @@ class Article extends AbstractEntity {
 
     /**
      * @param User $author
-     * @return $this
      */
     public function setAuthor(User $author): self
     {
-        $this->title = $author;
+        $this->author = $author;
         return $this;
     }
+
 }

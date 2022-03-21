@@ -34,9 +34,15 @@ final class UserManager
     public static function getUsersCount(): int
     {
         $result = DB::getPDO()->query("SELECT count(*) as cnt FROM " . self::TABLE);
-        return $result ? $result->fetch()['cnt'] : 0;
+        return $result ? $result->fetch()['cnt'] : 1;
     }
 
+    public static function getUserByMail(string $mail)
+    {
+        $stmt = DB::getPDO()->prepare("SELECT * FROM " . self::TABLE . " WHERE email = :mail LIMIT 1");
+        $stmt->bindParam(':mail', $mail);
+        return $stmt->execute() ? self::makeUser($stmt->fetch()) : null;
+    }
 
 
     /**
@@ -44,10 +50,14 @@ final class UserManager
      * @param int $id
      * @return User
      */
-    public static function getUser(int $id): ?User
+    public function getUser(int $id): user
     {
-        $result = DB::getPDO()->query("SELECT * FROM " . self::TABLE . " WHERE id = $id");
-        return $result ? self::makeUser($result->fetch()) : null;
+        $request = DB::getPDO()->prepare("SELECT * FROM user WHERE id = $id");
+        $request->bindValue(':id', $id);
+        $request->execute();
+        $user_data = $request->fetch();
+
+        return new user($user_data['email'], $user_data['pseudo'], $user_data['password']);
     }
 
     /**
@@ -75,4 +85,12 @@ final class UserManager
         return false;
     }
 
+    private static function makeUser(array $data): user
+    {
+        return (new User())
+            ->setId($data['id'])
+            ->setPassword($data['password'])
+            ->setEmail($data['email'])
+            ->setPseudo($data['pseudo']);
+    }
 }

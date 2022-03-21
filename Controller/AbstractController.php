@@ -103,7 +103,6 @@ abstract class AbstractController {
      */
     public function sanitizeString(string $param): string
     {
-        // FIXME ne faites pas ca chez vous !
         return $param;
     }
 
@@ -113,7 +112,6 @@ abstract class AbstractController {
      */
     public function sanitizeInt(int $param): int
     {
-        // PS: Ne faites pas ca non plus !
         return $param;
     }
 }

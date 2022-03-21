@@ -11,4 +11,8 @@ class HomeController extends AbstractController
     {
         $this->render('home/index');
     }
+
+    public function connect() {
+        $this->render('user/login');
+    }
 }

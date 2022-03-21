@@ -2,6 +2,8 @@
 
 namespace App\Routing;
 
+use App\Controller\ArticleController;
+use ErrorController;
 use HomeController;
 
 class HomeRouter extends AbstractRouter
@@ -13,5 +15,7 @@ class HomeRouter extends AbstractRouter
     {
         (new HomeController())->index();
     }
+
+
 
 }

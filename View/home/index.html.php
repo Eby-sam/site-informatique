@@ -1,23 +1,30 @@
 <div id="homeContainer">
     <div class="titlePage">
-        <h2> PC RENOVE (HOME) </h2>
+        <h2> PC RENOV (HOME) </h2>
 
         <h3>Réparation d'ordinateurs et matérielles informatiques</h3>
     </div>
 
-    <div>
-        <div class="divImg">
-            <img src="" alt="">
-            <p>image 1</p>
-        </div>
-        <div class="divImg">
-            <img src="" alt="">
-            <p>image 2</p>
-        </div>
-        <div class="divImg">
-            <img src="" alt="">
-            <p>image 3</p>
-        </div>
+    <div id="home">
+
+        <?php
+
+
+        use App\Model\Manager\ArticleManager;
+
+        $articleManager = new ArticleManager();
+
+        $articles = $articleManager->getArticles();
+
+        foreach($articles as $key => $article) { ?>
+
+                <div class="divImg">
+                    <img src="" alt="" height="80%" width="100%">
+                    <h3><?= $article->getTitle() ?></h3>
+                </div>
+
+            <?php
+        } ?>
 
     </div>
 

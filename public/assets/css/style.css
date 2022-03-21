@@ -17,12 +17,6 @@ html {
     align-items: center;
 }
 
-#butAdmin {
-    background-color: #eae5e5;
-    padding: 3px;
-    border: 1px solid black;
-}
-
 #titre {
     font-size: 4rem;
     text-align: center;
@@ -57,6 +51,12 @@ ul {
 
 form {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
 }
 
 .addA {
@@ -73,6 +73,9 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.container {
+    min-height: 75vh;
 }
 
 #enregistre {
@@ -106,4 +109,106 @@ form {
 
 h2 {
     font-size: 2.5rem;
+}
+
+#home {
+    width: 90%;
+    height: 40vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.divImg {
+    height: 90%;
+    width: 15%;
+    border: 5px solid #bdbebf;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+
+
+footer {
+    background-color: black;
+    color: #eae5e5;
+    margin-top: 20px;
+}
+
+.foot {
+    font-size: 1.8rem;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.footer1 {
+    width: 30%;
+    height: 10vh;
+    padding: 10px;
+}
+
+.article {
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 80%;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#articles {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#formAd {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formB {
+    width: 30%;
+    height: 60%;
+    border: 5px solid blue;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.formC {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#butconnect {
+    margin-top: 15px;
+}
+
+.pageTitle {
+    text-align: center;
+    margin-top: 15px;
 }

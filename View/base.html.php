@@ -38,11 +38,6 @@
             else { ?>
              <?php
             } ?>
-
-            <li>
-                <a href="/index.php?c=image">Galerie d'image</a>
-            </li>
-
         </ul>
     </div>
 
@@ -73,7 +68,37 @@
 <main class="container">
     <?= $html ?>
 </main>
+<div class="container2">
+    <div>
+        <table>
 
+        </table>
+    </div>
+</div>
+
+
+<footer>
+    <div id="footer">
+        <div class="footer1">
+            <p class="foot">
+                adresse : 9 la Ville Armel
+            </p>
+            <p class="foot">
+                code Postal : 56800 Taupont
+            </p>
+        </div>
+        <div class="footer1">
+            <p class="foot">
+                telephone : 06 50 41 77 28
+            </p>
+            <p class="foot">
+                email : pc.renov56@gmail.com
+            </p>
+        </div>
+
+
+    </div>
+</footer>
 
 <script src="/assets/js/app.js"></script>
 </body>
