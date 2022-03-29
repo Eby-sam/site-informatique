@@ -92,19 +92,32 @@ form {
 .liste {
     font-size: 2rem;
     list-style: none;
-    background-color: #d8d1d1;
+    background-color: #2f2fff;
+    color: white;
     padding: 2px;
+}
+
+
+
+a {
+    text-decoration-line: none;
+}
+
+a:visited {
+    color: white;
 }
 
 .titlePage {
     width: 90%;
-    border: 1px solid deepskyblue;
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
     font-size: 1.5rem;
     margin-top: 5px;
     text-align: center;
+    padding: 10px;
+    background: linear-gradient(90deg, white,blue,white);
+    color: white;
 }
 
 h2 {
@@ -123,7 +136,7 @@ h2 {
     align-items: center;
 }
 
-.divImg {
+.divArticleH {
     height: 90%;
     width: 15%;
     border: 5px solid #bdbebf;
@@ -131,6 +144,78 @@ h2 {
     font-size: 1.5rem;
 }
 
+.contain1 {
+    width: 100%;
+    height: 30%;
+    border-bottom: 1px solid black;
+    text-align: center;
+    overflow-wrap: break-word;
+
+}
+
+.contain2 {
+    width: 100%;
+    height: 60%;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+.imgHome {
+    width: 90%;
+    height: 10vh;
+    background-image: url("/public/assets/image/images.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#divHoraire {
+    width: 80%;
+    height: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #bdbebf;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+.horaire {
+    width: 50%;
+    height: 100%;
+}
+
+.one {
+    background-color: blue;
+    border-radius: 10px 0 0 10px;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.two {
+    background-color: #e3e3e4;
+    border-radius: 0 10px 10px 0;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#listeHome {
+    display: flex;
+    flex-direction: column;
+}
+
+.tree {
+    width: 60%;
+    height: 70%;
+}
 
 footer {
     background-color: black;

@@ -9,7 +9,6 @@ class ArticleManager
 {
     public const TABLE = 'article';
 
-
     public function getArticles(): array
     {
         $articles = [];
@@ -26,7 +25,6 @@ class ArticleManager
 
         return $articles;
     }
-
 
     /**
      * Return all users.
@@ -49,7 +47,6 @@ class ArticleManager
         return $articles;
     }
 
-
     /**
      * Add a new article into the db.
      * @param Article $article
@@ -71,11 +68,3 @@ class ArticleManager
         return $result;
     }
 }
-
-
-
-
-
-
-
-
