@@ -9,6 +9,33 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+<?php
+    if(isset($_SESSION['errors']) && count($_SESSION['errors']) > 0){
+        $errors = $_SESSION['errors'];
+        unset($_SESSION['errors']);
+
+        foreach ($errors as $error) { ?>
+            <div>
+                <?php
+                    $error
+                ?>
+            </div><?php
+
+
+        }
+    }
+?>
+
+<?php
+if(isset($_SESSION['success'])){
+    $success = $_SESSION['success'];
+    unset($_SESSION['success']);
+
+    ?><div>
+        <?php $success?>
+        </div><?php
+}
+?>
 <div id="container">
     <div>
         <div id="head">
@@ -30,9 +57,13 @@
             </li>
 
             <?php
-            if(!UserController::isUserConnected()) { ?>
+            if(UserController::isUserConnected()) { ?>
             <li>
                 <a href="/index.php?c=article">FormArticle</a>
+
+            </li>
+            <li>
+                <a href="/index.php?c=user&a=logout">Déconnexion</a>
             </li><?php
             }
             else { ?>

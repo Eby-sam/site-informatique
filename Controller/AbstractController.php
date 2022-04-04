@@ -34,9 +34,9 @@ abstract class AbstractController {
      * Return a form field value or default
      * @param string $field
      * @param $default
-     * @return void
+     * @return string
      */
-    public function getFormField(string $field, $default = null)
+    public function getFormField(string $field, $default = null): string
     {
         if (!isset($_POST[$field])) {
             return (null === $default) ? '' : $default;
@@ -74,28 +74,6 @@ abstract class AbstractController {
             $this->render('home/index');
         }
     }
-
-
-    /**
-     * @param string $role
-     * @return void
-     */
-    public function redirectIfNotGranted(string $role): void
-    {
-        if(!self::isUserConnected()) {
-            $this->render('home/index');
-            return;
-        }
-
-        $userRoles = array_map(function(Role $role2){
-            return $role2->getRoleName();
-        }, ($_SESSION['user'])->getRoles());
-
-        if(!in_array($role, $userRoles)) {
-            $this->render('home/index');
-        }
-    }
-
 
     /**
      * @param string $param

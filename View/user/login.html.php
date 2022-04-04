@@ -12,7 +12,7 @@
             </div>
             <div class="formC">
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password">
+                <input type="password" name="password" id="password">
             </div>
             <input type="submit" name="save" value="Validé" id="butconnect">
         </form>

@@ -76,6 +76,7 @@ form {
 }
 .container {
     min-height: 75vh;
+    background-color: #f9f9f9;
 }
 
 #enregistre {
@@ -86,25 +87,24 @@ form {
 }
 
 #title ,#content {
-    width: 75%;
+    width: 100%;
 }
 
 .liste {
     font-size: 2rem;
     list-style: none;
-    background-color: #2f2fff;
-    color: white;
+    background-color: #ecb260;
+    color: black;
     padding: 2px;
 }
 
-
-
 a {
     text-decoration-line: none;
+    color: black;
 }
 
 a:visited {
-    color: white;
+    color: black;
 }
 
 .titlePage {
@@ -116,8 +116,7 @@ a:visited {
     margin-top: 5px;
     text-align: center;
     padding: 10px;
-    background: linear-gradient(90deg, white,blue,white);
-    color: white;
+    background: linear-gradient(90deg, white,#ecb260,white);
 }
 
 h2 {
@@ -161,11 +160,14 @@ h2 {
 }
 
 .imgHome {
-    width: 90%;
-    height: 10vh;
-    background-image: url("/public/assets/image/images.jpg");
-    background-size: contain;
+    width: 50%;
+    height: 25vh;
+    background-image: url("../image/images.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
 }
 
 #divHoraire {
@@ -187,9 +189,8 @@ h2 {
 }
 
 .one {
-    background-color: blue;
+    background-color: #ecb260;
     border-radius: 10px 0 0 10px;
-    color: white;
     font-size: 2rem;
     text-align: center;
     display: flex;
@@ -273,7 +274,7 @@ footer {
 #formB {
     width: 30%;
     height: 60%;
-    border: 5px solid blue;
+    border: 5px solid #ecb260;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -296,4 +297,8 @@ footer {
 .pageTitle {
     text-align: center;
     margin-top: 15px;
+}
+
+#homeContainer {
+    background-color: #f9f9f9;
 }

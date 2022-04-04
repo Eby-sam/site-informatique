@@ -24,7 +24,6 @@ class UserController extends AbstractController
     {
         $this->render('user/statistics', [
             'users_count' => UserManager::getUsersCount(),
-            'min_age' => UserManager::getMinAge()
         ]);
     }
 
@@ -46,31 +45,6 @@ class UserController extends AbstractController
         }
     }
 
-
-    // TODO
-    public function editUser(int $id, string $category) {
-        echo "edit piaf";
-        var_dump([
-            '$id' => $id,
-            '$category' => $category,
-        ]);
-    }
-
-
-    /**
-     * Route handling users deletion.
-     * @param int $id
-     * @return void
-     */
-    public function deleteUser(int $id)
-    {
-        if(UserManager::userExists($id)) {
-            $user = UserManager::getUser($id);
-            $deleted = UserManager::deleteUser($user);
-        }
-        $this->index();
-    }
-
     /**
      * User logout.
      * @return void
@@ -83,7 +57,6 @@ class UserController extends AbstractController
             $_SESSION['success'] = null;
             session_destroy();
         }
-
         $this->render('home/index');
     }
 
@@ -98,7 +71,7 @@ class UserController extends AbstractController
 
         if($this->isFormSubmitted()) {
             $errorMessage = "Le pseudo ou le password est mauvais";
-            $mail = $this->sanitizeString($this->getFormField('email'));
+            $mail = $this->sanitizeString($this->getFormField('mail'));
             $password = $this->getFormField('password');
 
             $user = UserManager::getUserByMail($mail);
@@ -106,17 +79,17 @@ class UserController extends AbstractController
                 $_SESSION['errors'][] = $errorMessage;
             }
             else {
-                if (password_verify($password, $user->getPassword())) {
+                echo $password . " " . $user->getPassword();
+                if ($password === $user->getPassword()) {
                     $user->setPassword('');
                     $_SESSION['user'] = $user;
-                    $this->redirectIfConnected();
+                    $this->render('home/index');
                 }
                 else {
                     $_SESSION['errors'][] = $errorMessage;
                 }
             }
         }
-
         $this->render('user/login');
     }
 }

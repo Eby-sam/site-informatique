@@ -4,6 +4,8 @@
 
         <h3>Réparation d'ordinateurs et matérielles informatiques</h3>
     </div>
+    <div class="imgHome">
+    </div>
 
     <div id="home">
 
@@ -52,8 +54,7 @@
         </div>
     </div>
 
-    <div class="imgHome">
-    </div>
+
 
 </div>
 

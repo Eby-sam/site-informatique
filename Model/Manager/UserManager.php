@@ -5,7 +5,7 @@ namespace App\Model\Manager;
 use App\Model\DB;
 use App\Model\Entity\User;
 
-final class UserManager
+class UserManager
 {
     public const TABLE = 'user';
 
@@ -33,64 +33,39 @@ final class UserManager
      */
     public static function getUsersCount(): int
     {
-        $result = DB::getPDO()->query("SELECT count(*) as cnt FROM " . self::TABLE);
+        $result = DB::getPDO()->query(" SELECT count(*) as cnt FROM " . self::TABLE);
         return $result ? $result->fetch()['cnt'] : 1;
     }
 
-    public static function getUserByMail(string $mail)
+    public static function getUserByMail(string $mail): ?User
     {
-        $stmt = DB::getPDO()->prepare("SELECT * FROM " . self::TABLE . " WHERE email = :mail LIMIT 1");
-        $stmt->bindParam(':mail', $mail);
-        return $stmt->execute() ? self::makeUser($stmt->fetch()) : null;
-    }
+        $stmt = DB::getPDO()->prepare(" SELECT * FROM " . self::TABLE . " WHERE email = :email LIMIT 1");
+        $stmt->bindParam('email', $mail);
+        return $stmt->execute() ? self::makeUser($stmt->fetch()): null;
 
+    }
 
     /**
      * Return a user based on it us id.
      * @param int $id
      * @return User
      */
-    public function getUser(int $id): user
+    public static function getUser(int $id): ?User
     {
-        $request = DB::getPDO()->prepare("SELECT * FROM user WHERE id = $id");
-        $request->bindValue(':id', $id);
-        $request->execute();
-        $user_data = $request->fetch();
-
-        return new user($user_data['email'], $user_data['pseudo'], $user_data['password']);
+       $request = DB::getPDO()->query(" SELECT * FROM " . self::TABLE. " WHERE id = $id");
+       return $request ? self::makeUser($request->fetch()): null;
     }
 
     /**
-     * Check if a user exists.
-     * @param int $id
-     * @return bool
+     * @param array $data
+     * @return User
      */
-    public static function userExists(int $id): bool
-    {
-        $result = DB::getPDO()->query("SELECT count(*) as cnt FROM " . self::TABLE . " WHERE id = $id");
-        return $result ? $result->fetch()['cnt'] : 0;
-    }
-
-    /**
-     * Delete a user from user db.
-     * @param User $user
-     * @return bool
-     */
-    public static function deleteUser(User $user): bool {
-        if(self::userExists($user->getId())) {
-            return DB::getPDO()->exec("
-            DELETE FROM " . self::TABLE . " WHERE id = {$user->getId()}
-        ");
-        }
-        return false;
-    }
-
-    private static function makeUser(array $data): user
+    private static function makeUser(array $data): User
     {
         return (new User())
             ->setId($data['id'])
-            ->setPassword($data['password'])
             ->setEmail($data['email'])
-            ->setPseudo($data['pseudo']);
+            ->setPseudo($data['pseudo'])
+            ->setPassword($data['password']);
     }
 }
