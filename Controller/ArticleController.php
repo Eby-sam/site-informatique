@@ -36,11 +36,13 @@ class ArticleController extends AbstractController
             $user = UserManager::getUser(1);
             $title = $this->sanitizeString($this->getFormField('title'));
             $content = $this->sanitizeString($this->getFormField('content'));
+            $image = $this->sanitizeString($this->getFormField('img'));
             $article = new Article();
             $article
                 ->setTitle($title)
                 ->setContent($content)
                 ->setAuthor($user)
+                ->setPicture($image)
             ;
             if(ArticleManager::addNewArticle($article)) {
                 $this->render('article/show-article', [

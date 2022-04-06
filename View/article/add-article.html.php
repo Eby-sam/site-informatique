@@ -5,7 +5,7 @@
 
 
     <div id="formArticle">
-        <form action=/index.php?c=article method="post">
+        <form action=/index.php?c=article&a=add-article method="post">
             <div class="addA">
                 <label for="title">Titre de l'article</label>
                 <input type="text" name="title" id="title" placeholder="titre">
